@@ -1,0 +1,49 @@
+services:
+
+  # ── PostgreSQL ──────────────────────────────────────────
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB:       ${DB_NAME}
+      POSTGRES_USER:     ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Django / Gunicorn ───────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - media_files:/app/media
+    expose:
+      - "8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # ── React / Nginx ───────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: /api/v1
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - media_files:/app/media:ro
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+  media_files:

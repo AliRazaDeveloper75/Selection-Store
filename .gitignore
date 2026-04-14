@@ -1,0 +1,110 @@
+# ═══════════════════════════════════════════════════════════
+#  Selections.pk — .gitignore
+# ═══════════════════════════════════════════════════════════
+
+
+# ───────────────────────────────────────────────────────────
+#  SECRETS & ENVIRONMENT  ← never commit these
+# ───────────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+
+# ───────────────────────────────────────────────────────────
+#  PYTHON / DJANGO
+# ───────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+backend/venv/
+backend/.venv/
+venv/
+.venv/
+env/
+ENV/
+
+# Django generated
+backend/staticfiles/
+backend/media/
+backend/db.sqlite3
+backend/*.sqlite3
+
+# Coverage / test reports
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Byte-compiled
+*.egg-info/
+dist/
+build/
+*.egg
+
+
+# ───────────────────────────────────────────────────────────
+#  NODE / REACT / VITE
+# ───────────────────────────────────────────────────────────
+frontend/node_modules/
+node_modules/
+
+# Vite build output
+frontend/dist/
+frontend/.vite/
+
+# Cache
+frontend/.cache/
+.eslintcache
+
+
+# ───────────────────────────────────────────────────────────
+#  DOCKER
+# ───────────────────────────────────────────────────────────
+# Keep docker-compose.yml and Dockerfiles tracked.
+# Ignore local override files.
+docker-compose.override.yml
+
+
+# ───────────────────────────────────────────────────────────
+#  OS FILES
+# ───────────────────────────────────────────────────────────
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+
+# ───────────────────────────────────────────────────────────
+#  EDITORS & IDEs
+# ───────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+
+# ───────────────────────────────────────────────────────────
+#  LOGS & TEMP
+# ───────────────────────────────────────────────────────────
+*.log
+logs/
+tmp/
+temp/
