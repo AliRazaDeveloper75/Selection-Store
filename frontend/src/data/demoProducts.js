@@ -10,7 +10,7 @@ export const DEMO_PRODUCTS = [
     price: '2500.00', effective_price: '1999.00', discount_price: '1999.00',
     discount_percentage: 20, is_featured: true, in_stock: true, avg_rating: 4.8, review_count: 124,
   },
-  {
+  { 
     id: 'd2', slug: 'demo-mens-shalwar-kameez',
     name: 'Classic Men\'s Shalwar Kameez – White',
     category_name: "Men's Fashion",
