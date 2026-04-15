@@ -6,11 +6,10 @@ on:
 
 jobs:
   deploy:
-    name: Build & Deploy
+    name: Deploy to EC2
     runs-on: ubuntu-latest
 
     steps:
-      # ── 1. Pull latest code on EC2 and rebuild containers ──────────────────
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -21,18 +20,31 @@ jobs:
           script: |
             set -e
 
-            cd /home/${{ secrets.EC2_USER }}/selections-pk
+            cd ~/Selection-Store
 
             echo "── Pulling latest code ──"
             git pull origin main
 
-            echo "── Rebuilding & restarting containers ──"
-            docker compose up --build -d
+            echo "── Installing backend dependencies ──"
+            cd ~/Selection-Store/backend
+            source venv/bin/activate
+            pip install -r requirements.txt --quiet
 
             echo "── Running database migrations ──"
-            docker compose exec -T backend python manage.py migrate --noinput
+            python manage.py migrate --noinput
 
-            echo "── Pruning unused Docker images ──"
-            docker image prune -f
+            echo "── Collecting static files ──"
+            python manage.py collectstatic --noinput
+
+            echo "── Restarting backend service ──"
+            sudo systemctl restart selections-backend
+
+            echo "── Building frontend ──"
+            cd ~/Selection-Store/frontend
+            npm install --silent
+            npm run build
+
+            echo "── Reloading nginx ──"
+            sudo systemctl reload nginx
 
             echo "── Deploy complete: $(date) ──"
