@@ -22,7 +22,7 @@ const FAQS = [
 
 const CONTACT_CARDS = [
   { Icon: MdLocationOn,  title: 'Visit Us',        lines: ['123 Fashion Street', 'Saddar, Karachi', 'Pakistan'],         color: 'bg-blue-50 text-blue-600' },
-  { Icon: MdPhone,       title: 'Call Us',          lines: ['+92 300 1234567', '+92 321 9876543', 'Mon–Sat, 10am–8pm'], color: 'bg-green-50 text-green-600' },
+  { Icon: MdPhone,       title: 'Call Us',          lines: ['+92 317 8968927', 'Mon–Sat, 10am–8pm'], color: 'bg-green-50 text-green-600' },
   { Icon: MdEmail,       title: 'Email Us',         lines: ['info@selections.pk.com', 'support@selections.pk.com', 'Response within 24 hrs'], color: 'bg-orange-50 text-orange-600' },
   { Icon: MdAccessTime,  title: 'Business Hours',   lines: ['Mon–Fri: 10am – 8pm', 'Saturday: 10am – 6pm', 'Sunday: Closed'],           color: 'bg-purple-50 text-purple-600' },
 ]
@@ -82,10 +82,10 @@ export default function ContactUs() {
           </p>
           {/* Quick contact pills */}
           <div className="flex flex-wrap justify-center gap-3 mt-8">
-            <a href="tel:+923001234567"
+            <a href="tel:+923178968927"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover:scale-105"
               style={{ background: '#f09c27', color: '#1a1a2e' }}>
-              📞 +92 300 1234567
+              📞 +92 317 8968927
             </a>
             <a href="mailto:info@selections.pk.com"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border-2 border-white/30 text-white hover:bg-white/10 transition-all">

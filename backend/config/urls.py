@@ -48,7 +48,7 @@ def health(request):
     <div class="links">
       <a class="primary" href="/api/docs/">Browse API Docs (Swagger)</a>
       <a class="ghost"   href="/api/redoc/">ReDoc Reference</a>
-      <a class="ghost"   href="/admin/">Django Admin Panel</a>
+      <a class="ghost"   href="/django-admin/">Django Admin Panel</a>
     </div>
   </div>
 </body>
@@ -68,7 +68,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('', health, name='health'),
-    path('admin/', admin.site.urls),
+    path('django-admin/', admin.site.urls),
 
     # API v1
     path('api/v1/auth/', include('apps.users.urls')),

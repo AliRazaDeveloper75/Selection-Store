@@ -3,8 +3,8 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import { FaWhatsapp, FaPhone } from 'react-icons/fa'
 
-const WHATSAPP_NUMBER = '923134001623'
-const CALL_NUMBER     = '+923134001623'
+const WHATSAPP_NUMBER = '923178968927'
+const CALL_NUMBER     = '+923178968927'
 
 export default function Layout() {
   return (
