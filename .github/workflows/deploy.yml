@@ -22,7 +22,8 @@ jobs:
 
             echo "── Pulling latest code ──"
             cd ~/Selection-Store
-            git pull origin main
+            git fetch origin main
+            git reset --hard origin/main
 
             echo "── Installing backend dependencies ──"
             cd ~/Selection-Store/backend
