@@ -210,7 +210,13 @@ export default function Home() {
     <>
       <Helmet>
         <title>Selections.pk – Premium Fashion Store Pakistan</title>
-        <meta name="description" content="Shop the latest clothing, abayas, kameez, accessories and more at Selections.pk. Premium quality fashion delivered across Pakistan." />
+        <meta name="description" content="Shop the latest clothing, abayas, lawn suits, kameez & accessories at Selections.pk. Free shipping on orders over PKR 2,000. Delivered across Pakistan." />
+        <meta name="keywords" content="buy clothes online pakistan, lawn suits 2026, abayas pakistan, women fashion pakistan, selections.pk, pakistani dress online" />
+        <link rel="canonical" href="https://selections.pk/" />
+        <meta property="og:title" content="Selections.pk – Premium Fashion Store Pakistan" />
+        <meta property="og:description" content="Shop premium clothing, abayas, lawn suits & accessories. Free shipping on orders over PKR 2,000." />
+        <meta property="og:url" content="https://selections.pk/" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       {/* ── HERO ── */}

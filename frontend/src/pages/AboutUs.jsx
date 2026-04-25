@@ -35,8 +35,13 @@ export default function AboutUs() {
   return (
     <>
       <Helmet>
-        <title>About Us – Selections.pk</title>
-        <meta name="description" content="Learn about Selections.pk — Pakistan's premium online fashion store. Our story, values, and the team behind the brand." />
+        <title>About Us – Selections.pk | Pakistan's Premium Fashion Store</title>
+        <meta name="description" content="Learn about Selections.pk — Pakistan's trusted online fashion store. Quality clothing, abayas, lawn suits delivered across Pakistan. Our story and values." />
+        <meta name="keywords" content="about selections.pk, pakistani fashion brand, online clothing store pakistan" />
+        <link rel="canonical" href="https://selections.pk/about" />
+        <meta property="og:title" content="About Us – Selections.pk" />
+        <meta property="og:description" content="Pakistan's trusted online fashion store. Quality clothing, abayas & lawn suits delivered across Pakistan." />
+        <meta property="og:url" content="https://selections.pk/about" />
       </Helmet>
 
       {/* Hero */}

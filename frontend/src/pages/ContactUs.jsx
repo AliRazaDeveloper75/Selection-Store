@@ -45,8 +45,13 @@ export default function ContactUs() {
   return (
     <>
       <Helmet>
-        <title>Contact Us – Selections.pk</title>
-        <meta name="description" content="Get in touch with Selections.pk. We're here to help with orders, returns, product questions and more." />
+        <title>Contact Us – Selections.pk | Call +92 317 8968927</title>
+        <meta name="description" content="Contact Selections.pk for orders, returns or product questions. Call +92 317 8968927 or WhatsApp us. Mon–Sat 10am–8pm." />
+        <meta name="keywords" content="contact selections.pk, selections.pk phone number, selections.pk customer support" />
+        <link rel="canonical" href="https://selections.pk/contact" />
+        <meta property="og:title" content="Contact Us – Selections.pk" />
+        <meta property="og:description" content="Contact Selections.pk for orders or returns. Call or WhatsApp +92 317 8968927. Mon–Sat 10am–8pm." />
+        <meta property="og:url" content="https://selections.pk/contact" />
       </Helmet>
 
       {/* Hero */}

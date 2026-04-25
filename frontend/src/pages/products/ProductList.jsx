@@ -65,7 +65,13 @@ export default function ProductList() {
   return (
     <>
       <Helmet>
-        <title>Shop All Products – Selections.pk</title>
+        <title>Shop Clothing, Abayas & Lawn Suits – Selections.pk</title>
+        <meta name="description" content="Browse our full collection of women's clothing, abayas, lawn suits, kameez and accessories. Free shipping on orders over PKR 2,000 across Pakistan." />
+        <meta name="keywords" content="buy abayas online pakistan, lawn suits 2026, kameez pakistan, women clothing online, selections.pk shop" />
+        <link rel="canonical" href="https://selections.pk/products" />
+        <meta property="og:title" content="Shop Clothing, Abayas & Lawn Suits – Selections.pk" />
+        <meta property="og:description" content="Browse women's clothing, abayas, lawn suits & accessories. Free shipping over PKR 2,000." />
+        <meta property="og:url" content="https://selections.pk/products" />
       </Helmet>
 
       <div className="page-container">
