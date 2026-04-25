@@ -28,6 +28,7 @@ jobs:
             echo "── Installing backend dependencies ──"
             cd ~/Selection-Store/backend
             ~/Selection-Store/backend/venv/bin/pip install --upgrade setuptools --quiet
+            ~/Selection-Store/backend/venv/bin/pip install --upgrade drf-yasg --quiet
             ~/Selection-Store/backend/venv/bin/pip install -r requirements.txt --quiet
 
             echo "── Running database migrations ──"
