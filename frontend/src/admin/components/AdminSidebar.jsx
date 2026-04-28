@@ -35,8 +35,9 @@ export default function AdminSidebar() {
       <div className="px-5 py-4 border-b border-white/10">
         <Link to="/admin" className="flex items-center gap-3">
           <img src={logo} alt="Selections.pk"
-            className="h-9 w-auto object-contain max-w-[120px]"
-            style={{ filter: 'brightness(0) invert(1)' }} />
+            className="h-10 w-auto object-contain max-w-[130px]"
+            style={{ filter: 'drop-shadow(0 0 4px rgba(240,156,39,0.5)) brightness(1.1)' }}
+            onError={e => { e.currentTarget.style.display = 'none' }} />
           <span className="text-[11px] text-gray-400 leading-none font-medium">Admin Panel</span>
         </Link>
       </div>
