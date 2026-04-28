@@ -25,7 +25,11 @@ export default function Login() {
 
   return (
     <>
-      <Helmet><title>Login – Selections.pk</title></Helmet>
+      <Helmet>
+        <title>Login – Selections.pk | Pakistan's Online Fashion Store</title>
+        <meta name="description" content="Login to Selections.pk to track orders, manage wishlist and shop premium Pakistani fashion. Abayas, lawn suits, kameez & more." />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">

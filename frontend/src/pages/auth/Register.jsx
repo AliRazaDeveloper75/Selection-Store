@@ -22,7 +22,11 @@ export default function Register() {
 
   return (
     <>
-      <Helmet><title>Create Account – Selections.pk</title></Helmet>
+      <Helmet>
+        <title>Create Account – Selections.pk | Shop Fashion Online Pakistan</title>
+        <meta name="description" content="Create your Selections.pk account to shop premium Pakistani fashion. Get exclusive deals, track orders and save your wishlist." />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">

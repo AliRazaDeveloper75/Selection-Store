@@ -92,8 +92,29 @@ export default function ProductDetail() {
   return (
     <>
       <Helmet>
-        <title>{product.name} – Selections.pk</title>
-        <meta name="description" content={product.short_description || product.description?.slice(0, 150)} />
+        <title>{product.name} – Buy Online at Selections.pk Pakistan</title>
+        <meta name="description" content={`Buy ${product.name} online at Selections.pk. ${product.short_description || product.description?.slice(0, 120) || ''} Free shipping over PKR 2,000. COD available across Pakistan.`} />
+        <meta name="keywords" content={`${product.name}, buy ${product.name} online pakistan, selections.pk, ${product.category || 'fashion'} pakistan`} />
+        <meta property="og:title" content={`${product.name} – Selections.pk`} />
+        <meta property="og:description" content={`Buy ${product.name} online. Free shipping over PKR 2,000. COD available.`} />
+        <meta property="og:image" content={product.primary_image || 'https://selections.pk/og-image.jpg'} />
+        <meta property="og:type" content="product" />
+        <meta property="og:url" content={`https://selections.pk/products/${product.slug || product.id}`} />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": product.name,
+          "description": product.short_description || product.description?.slice(0, 200),
+          "image": product.primary_image,
+          "brand": { "@type": "Brand", "name": "Selections.pk" },
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "PKR",
+            "price": product.price,
+            "availability": product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+            "seller": { "@type": "Organization", "name": "Selections.pk" }
+          }
+        })}</script>
       </Helmet>
 
       <div className="page-container">

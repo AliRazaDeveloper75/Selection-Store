@@ -1,5 +1,5 @@
 """
-Centralized HTML email utilities for Cloth by AFS.
+Centralized HTML email utilities for Selections.pk.
 All emails use inline CSS for maximum email-client compatibility.
 """
 import datetime
@@ -18,8 +18,8 @@ SUCCESS  = '#16a34a'
 INFO     = '#2563eb'
 DANGER   = '#ef4444'
 
-SITE_NAME    = 'Cloth by AFS'
-WHATSAPP_NUM = '+92 313 4001623'
+SITE_NAME    = 'Selections.pk'
+WHATSAPP_NUM = '+92 317 8968927'
 
 
 def _frontend(path=''):
@@ -108,7 +108,7 @@ def send_welcome_email(user):
     <p style="margin:0 0 24px;color:{PRIMARY};font-size:15px;font-weight:600;">Your account is ready. Let's get shopping!</p>
 
     <p style="margin:0 0 20px;color:{TEXT};font-size:15px;line-height:1.75;">
-      Thank you for joining <strong>{SITE_NAME}</strong> — Pakistan's premier online fashion destination.
+      Thank you for joining <strong>{SITE_NAME}</strong> — Pakistan's trusted online fashion destination.
       We're thrilled to have you as part of our family!
     </p>
 
@@ -119,7 +119,7 @@ def send_welcome_email(user):
     <tr><td style="background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:24px 28px;">
       <h2 style="margin:0 0 12px;font-size:17px;font-weight:700;color:{DARK};">Who We Are</h2>
       <p style="margin:0 0 14px;color:{TEXT};font-size:14px;line-height:1.75;">
-        Cloth by AFS brings you the finest Pakistani fashion — from classic shalwar kameez and luxury kurtis
+        Selections.pk brings you the finest Pakistani fashion — from classic shalwar kameez and luxury kurtis
         to modern abayas and casual wear — all crafted with premium fabric and meticulous attention to detail.
         Every stitch tells a story of quality and tradition.
       </p>
@@ -168,10 +168,10 @@ def send_welcome_email(user):
 
     plain = (
         f"Hi {name},\n\n"
-        f"Welcome to Cloth by AFS!\n\n"
+        f"Welcome to Selections.pk!\n\n"
         f"Your account has been created successfully.\n\n"
         f"WHO WE ARE\n"
-        f"Cloth by AFS brings you the finest Pakistani fashion — classic shalwar kameez,\n"
+        f"Selections.pk brings you the finest Pakistani fashion — classic shalwar kameez,\n"
         f"luxury kurtis, modern abayas, and casual wear — all with premium quality.\n\n"
         f"✅ Authentic Pakistani designs\n"
         f"🚚 Nationwide delivery & Cash on Delivery\n"
@@ -181,11 +181,11 @@ def send_welcome_email(user):
         f"Use code WELCOME10 for 10% off your first order!\n\n"
         f"Start shopping: {_frontend('/products')}\n\n"
         f"Need help? WhatsApp: {WHATSAPP_NUM}\n\n"
-        f"— Team Cloth by AFS"
+        f"— Team Selections.pk"
     )
 
     send_mail(
-        subject=f'Welcome to Cloth by AFS, {name}! 🎉',
+        subject=f'Welcome to Selections.pk, {name}! 🎉',
         message=plain,
         from_email=settings.DEFAULT_FROM_EMAIL,
         recipient_list=[user.email],
@@ -383,11 +383,11 @@ def send_order_confirmation_email(order):
         f"{payment_note}\n\n"
         f"Track your order: {track_url}\n\n"
         f"Need help? WhatsApp: {WHATSAPP_NUM}\n"
-        f"— Team Cloth by AFS"
+        f"— Team Selections.pk"
     )
 
     send_mail(
-        subject=f'Order #{order.order_number} {"Confirmed ✅" if is_cod else "Placed ⏳"} – Cloth by AFS',
+        subject=f'Order #{order.order_number} {"Confirmed ✅" if is_cod else "Placed ⏳"} – Selections.pk',
         message=plain,
         from_email=settings.DEFAULT_FROM_EMAIL,
         recipient_list=[user.email],
@@ -584,17 +584,17 @@ def send_order_status_email(order):
         f"Payment: {order.get_payment_method_display()} — {'Paid' if order.is_paid else 'Pending'}\n\n"
         f"View order: {track_url}\n\n"
         f"WhatsApp: {WHATSAPP_NUM}\n"
-        f"— Team Cloth by AFS"
+        f"— Team Selections.pk"
     )
 
     send_mail(
-        subject=f'{meta["icon"]} Order #{order.order_number} – {meta["label"]} | Cloth by AFS',
+        subject=f'{meta["icon"]} Order #{order.order_number} – {meta["label"]} | Selections.pk',
         message=plain,
         from_email=settings.DEFAULT_FROM_EMAIL,
         recipient_list=[user.email],
         html_message=_base(
             content,
-            preheader=f"Order #{order.order_number}: {meta['label']} – Cloth by AFS"
+            preheader=f"Order #{order.order_number}: {meta['label']} – Selections.pk"
         ),
         fail_silently=True,
     )

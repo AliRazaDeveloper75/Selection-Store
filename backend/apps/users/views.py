@@ -108,7 +108,7 @@ class PasswordResetRequestView(APIView):
 
             reset_url = f"{settings.FRONTEND_URL}/reset-password?token={token}"
             send_mail(
-                subject='Password Reset – Cloth by AFS',
+                subject='Password Reset – Selections.pk',
                 message=f'Click the link to reset your password: {reset_url}\nValid for 1 hour.',
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[email],
@@ -169,10 +169,17 @@ class AdminUserListView(generics.ListAPIView):
     ordering_fields = ['date_joined', 'last_login']
 
 
-class AdminUserDetailView(generics.RetrieveUpdateAPIView):
+class AdminUserDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = AdminUserSerializer
     permission_classes = [IsAdminUser]
     queryset = User.objects.all()
+
+    def destroy(self, request, *args, **kwargs):
+        user = self.get_object()
+        if user == request.user:
+            return Response({'detail': 'You cannot delete your own account.'}, status=status.HTTP_400_BAD_REQUEST)
+        user.delete()
+        return Response({'detail': 'User deleted successfully.'}, status=status.HTTP_204_NO_CONTENT)
 
 
 class AdminBlockUserView(APIView):

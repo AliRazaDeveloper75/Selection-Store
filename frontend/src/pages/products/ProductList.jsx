@@ -65,13 +65,27 @@ export default function ProductList() {
   return (
     <>
       <Helmet>
-        <title>Shop Clothing, Abayas & Lawn Suits – Selections.pk</title>
-        <meta name="description" content="Browse our full collection of women's clothing, abayas, lawn suits, kameez and accessories. Free shipping on orders over PKR 2,000 across Pakistan." />
-        <meta name="keywords" content="buy abayas online pakistan, lawn suits 2026, kameez pakistan, women clothing online, selections.pk shop" />
+        <title>Shop Abayas, Lawn Suits & Kameez Online – Selections.pk Pakistan</title>
+        <meta name="description" content="Shop selections of abayas, lawn suits, kameez, kurtas & accessories online at Selections.pk. Best prices in Pakistan. Free shipping over PKR 2,000. COD available. New arrivals daily!" />
+        <meta name="keywords" content="selections pk shop, selectionspk, buy abayas online pakistan, lawn suits 2026, kameez pakistan, shalwar kameez online, women clothing selections, selection online shopping pakistan, pakistani fashion store online" />
         <link rel="canonical" href="https://selections.pk/products" />
-        <meta property="og:title" content="Shop Clothing, Abayas & Lawn Suits – Selections.pk" />
-        <meta property="og:description" content="Browse women's clothing, abayas, lawn suits & accessories. Free shipping over PKR 2,000." />
+        <meta property="og:title" content="Shop Abayas, Lawn Suits & Kameez – Selections.pk" />
+        <meta property="og:description" content="Best selection of abayas, lawn suits & kameez. Free shipping over PKR 2,000. COD available across Pakistan." />
         <meta property="og:url" content="https://selections.pk/products" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Shop – Selections.pk",
+          "description": "Browse abayas, lawn suits, kameez and accessories at Selections.pk Pakistan",
+          "url": "https://selections.pk/products",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://selections.pk" },
+              { "@type": "ListItem", "position": 2, "name": "Shop", "item": "https://selections.pk/products" }
+            ]
+          }
+        })}</script>
       </Helmet>
 
       <div className="page-container">

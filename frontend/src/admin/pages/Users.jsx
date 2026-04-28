@@ -56,6 +56,17 @@ export default function AdminUsers() {
     }
   }
 
+  const deleteUser = async (user) => {
+    if (!window.confirm(`Permanently delete "${user.email}"? This cannot be undone.`)) return
+    try {
+      await api.delete(`/auth/admin/users/${user.id}/`)
+      setUsers((prev) => prev.filter((u) => u.id !== user.id))
+      toast.success('User deleted successfully')
+    } catch (err) {
+      toast.error(err?.response?.data?.detail || 'Failed to delete user')
+    }
+  }
+
   return (
     <>
       <Helmet><title>Users – Admin | Selections.pk</title></Helmet>
@@ -148,6 +159,12 @@ export default function AdminUsers() {
                               Make Admin
                             </button>
                           )}
+                          <button
+                            onClick={() => deleteUser(u)}
+                            className="px-3 py-1.5 text-xs font-semibold text-white bg-red-500 hover:bg-red-600 rounded-lg transition-colors"
+                          >
+                            Delete
+                          </button>
                         </div>
                       </td>
                     </tr>
