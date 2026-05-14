@@ -45,13 +45,55 @@ export default function ContactUs() {
   return (
     <>
       <Helmet>
-        <title>Contact Us – Selections.pk | Call +92 317 8968927</title>
-        <meta name="description" content="Contact Selections.pk for orders, returns or product questions. Call +92 317 8968927 or WhatsApp us. Mon–Sat 10am–8pm." />
-        <meta name="keywords" content="contact selections.pk, selections.pk phone number, selections.pk customer support" />
+        <title>Contact Us – Selections.pk | Call +92 317 8968927 | Karachi Fashion Store</title>
+        <meta name="description" content="Contact Selections.pk for orders, returns or product questions. Call +92 317 8968927 or WhatsApp us. Visit us at 123 Fashion Street, Saddar, Karachi. Mon–Sat 10am–8pm." />
+        <meta name="keywords" content="contact selections.pk, selections.pk phone number, selections.pk customer support, selections pk karachi, fashion store karachi contact" />
         <link rel="canonical" href="https://selections.pk/contact" />
-        <meta property="og:title" content="Contact Us – Selections.pk" />
-        <meta property="og:description" content="Contact Selections.pk for orders or returns. Call or WhatsApp +92 317 8968927. Mon–Sat 10am–8pm." />
+        <meta property="og:title" content="Contact Selections.pk – Call +92 317 8968927" />
+        <meta property="og:description" content="Contact Selections.pk for orders or returns. Call or WhatsApp +92 317 8968927. Mon–Sat 10am–8pm. Based in Karachi, Pakistan." />
         <meta property="og:url" content="https://selections.pk/contact" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "LocalBusiness",
+              "name": "Selections.pk",
+              "url": "https://selections.pk",
+              "telephone": "+92-317-8968927",
+              "email": "info@selections.pk",
+              "description": "Pakistan's premium online fashion store. Shop abayas, lawn suits, kameez and accessories with nationwide delivery.",
+              "priceRange": "PKR 500–PKR 10,000",
+              "currenciesAccepted": "PKR",
+              "paymentAccepted": "Cash on Delivery",
+              "openingHoursSpecification": [
+                { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "20:00" },
+                { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "18:00" }
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "123 Fashion Street, Saddar",
+                "addressLocality": "Karachi",
+                "addressRegion": "Sindh",
+                "addressCountry": "PK"
+              },
+              "sameAs": [
+                "https://www.facebook.com/selections.pk",
+                "https://www.instagram.com/selections.pk"
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                { "@type": "Question", "name": "How long does delivery take?", "acceptedAnswer": { "@type": "Answer", "text": "We deliver within 3–5 business days across Pakistan. Major cities like Karachi, Lahore, and Islamabad are typically delivered in 2–3 days." } },
+                { "@type": "Question", "name": "Can I pay on delivery?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! Cash on Delivery (COD) is our primary payment method. You only pay when your order arrives at your doorstep." } },
+                { "@type": "Question", "name": "What is your return policy?", "acceptedAnswer": { "@type": "Answer", "text": "We offer a 7-day easy return policy. If you're not satisfied, contact us within 7 days of delivery and we'll arrange a pickup and full refund." } },
+                { "@type": "Question", "name": "How do I track my order?", "acceptedAnswer": { "@type": "Answer", "text": "Once your order is shipped, you'll receive a tracking number via SMS and email. You can also check your order status in your account under Orders." } },
+                { "@type": "Question", "name": "Do you offer exchanges?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely! We offer free size exchanges within 7 days. Contact our support team and we'll sort it out quickly." } }
+              ]
+            }
+          ]
+        })}</script>
       </Helmet>
 
       {/* Hero */}

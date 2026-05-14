@@ -62,27 +62,47 @@ export default function ProductList() {
     setSearchParams(params)
   }
 
+  const catName = filters.category ? filters.category.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) : ''
+  const pageTitle = filters.search
+    ? `Search "${filters.search}" – Selections.pk`
+    : catName
+      ? `${catName} Clothing Online Pakistan – Selections.pk | Buy ${catName} Fashion`
+      : 'Shop Abayas, Lawn Suits & Kameez Online – Selections.pk Pakistan'
+  const pageDesc = filters.search
+    ? `Search results for "${filters.search}" at Selections.pk. Free shipping over PKR 2,000. COD available.`
+    : catName
+      ? `Buy ${catName} clothing online at Selections.pk Pakistan. Huge collection, best prices, free shipping over PKR 2,000. Cash on delivery across Pakistan.`
+      : 'Shop abayas, lawn suits, kameez, kurtas & accessories online at Selections.pk. Best prices in Pakistan. Free shipping over PKR 2,000. COD available. New arrivals daily!'
+  const canonicalUrl = filters.category
+    ? `https://selections.pk/products?category=${filters.category}`
+    : 'https://selections.pk/products'
+
   return (
     <>
       <Helmet>
-        <title>Shop Abayas, Lawn Suits & Kameez Online – Selections.pk Pakistan</title>
-        <meta name="description" content="Shop selections of abayas, lawn suits, kameez, kurtas & accessories online at Selections.pk. Best prices in Pakistan. Free shipping over PKR 2,000. COD available. New arrivals daily!" />
-        <meta name="keywords" content="selections pk shop, selectionspk, buy abayas online pakistan, lawn suits 2026, kameez pakistan, shalwar kameez online, women clothing selections, selection online shopping pakistan, pakistani fashion store online" />
-        <link rel="canonical" href="https://selections.pk/products" />
-        <meta property="og:title" content="Shop Abayas, Lawn Suits & Kameez – Selections.pk" />
-        <meta property="og:description" content="Best selection of abayas, lawn suits & kameez. Free shipping over PKR 2,000. COD available across Pakistan." />
-        <meta property="og:url" content="https://selections.pk/products" />
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDesc} />
+        <meta name="keywords" content={catName
+          ? `${catName.toLowerCase()} pakistan, buy ${catName.toLowerCase()} online pakistan, ${catName.toLowerCase()} selections.pk, ${catName.toLowerCase()} clothing pakistan`
+          : 'selections pk shop, selectionspk, buy abayas online pakistan, lawn suits 2026, kameez pakistan, shalwar kameez online, women clothing selections, selection online shopping pakistan, pakistani fashion store online'
+        } />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDesc} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="website" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          "name": "Shop – Selections.pk",
-          "description": "Browse abayas, lawn suits, kameez and accessories at Selections.pk Pakistan",
-          "url": "https://selections.pk/products",
+          "name": catName ? `${catName} – Selections.pk` : "Shop – Selections.pk",
+          "description": pageDesc,
+          "url": canonicalUrl,
           "breadcrumb": {
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://selections.pk" },
-              { "@type": "ListItem", "position": 2, "name": "Shop", "item": "https://selections.pk/products" }
+              { "@type": "ListItem", "position": 2, "name": "Shop", "item": "https://selections.pk/products" },
+              ...(catName ? [{ "@type": "ListItem", "position": 3, "name": catName, "item": canonicalUrl }] : [])
             ]
           }
         })}</script>

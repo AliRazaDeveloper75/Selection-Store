@@ -92,28 +92,62 @@ export default function ProductDetail() {
   return (
     <>
       <Helmet>
-        <title>{product.name} – Buy Online at Selections.pk Pakistan</title>
-        <meta name="description" content={`Buy ${product.name} online at Selections.pk. ${product.short_description || product.description?.slice(0, 120) || ''} Free shipping over PKR 2,000. COD available across Pakistan.`} />
-        <meta name="keywords" content={`${product.name}, buy ${product.name} online pakistan, selections.pk, ${product.category || 'fashion'} pakistan`} />
-        <meta property="og:title" content={`${product.name} – Selections.pk`} />
-        <meta property="og:description" content={`Buy ${product.name} online. Free shipping over PKR 2,000. COD available.`} />
-        <meta property="og:image" content={product.primary_image || 'https://selections.pk/og-image.jpg'} />
+        <title>{product.name} – Buy Online Pakistan | Selections.pk | COD Available</title>
+        <meta name="description" content={`Buy ${product.name} online at Selections.pk Pakistan. ${product.short_description || product.description?.slice(0, 110) || ''} Free shipping over PKR 2,000. Cash on delivery available.`} />
+        <meta name="keywords" content={`${product.name}, buy ${product.name} online pakistan, ${product.name} price pakistan, selections.pk, ${product.category?.name || 'fashion'} pakistan`} />
+        <link rel="canonical" href={`https://selections.pk/products/${product.slug}`} />
+        <meta property="og:title" content={`${product.name} – Selections.pk Pakistan`} />
+        <meta property="og:description" content={`Buy ${product.name} online at Selections.pk. Free shipping over PKR 2,000. COD available across Pakistan.`} />
+        <meta property="og:image" content={product.images?.[0]?.image || 'https://selections.pk/og-image.jpg'} />
         <meta property="og:type" content="product" />
-        <meta property="og:url" content={`https://selections.pk/products/${product.slug || product.id}`} />
+        <meta property="og:url" content={`https://selections.pk/products/${product.slug}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${product.name} – Selections.pk`} />
+        <meta name="twitter:image" content={product.images?.[0]?.image || 'https://selections.pk/og-image.jpg'} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Product",
-          "name": product.name,
-          "description": product.short_description || product.description?.slice(0, 200),
-          "image": product.primary_image,
-          "brand": { "@type": "Brand", "name": "Selections.pk" },
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "PKR",
-            "price": product.price,
-            "availability": product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-            "seller": { "@type": "Organization", "name": "Selections.pk" }
-          }
+          "@graph": [
+            {
+              "@type": "Product",
+              "name": product.name,
+              "description": product.short_description || product.description?.slice(0, 300),
+              "sku": product.sku,
+              "brand": { "@type": "Brand", "name": product.brand || "Selections.pk" },
+              "image": product.images?.map(img => img.image) || [],
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "PKR",
+                "price": String(product.discount_price || product.price),
+                "priceValidUntil": new Date(Date.now() + 30*24*60*60*1000).toISOString().split('T')[0],
+                "availability": product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+                "url": `https://selections.pk/products/${product.slug}`,
+                "seller": { "@type": "Organization", "name": "Selections.pk", "url": "https://selections.pk" },
+                "shippingDetails": {
+                  "@type": "OfferShippingDetails",
+                  "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "PKR" },
+                  "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "PK" }
+                }
+              },
+              ...(product.avg_rating > 0 ? {
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": String(product.avg_rating),
+                  "reviewCount": String(product.review_count),
+                  "bestRating": "5",
+                  "worstRating": "1"
+                }
+              } : {})
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://selections.pk" },
+                { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://selections.pk/products" },
+                ...(product.category ? [{ "@type": "ListItem", "position": 3, "name": product.category.name, "item": `https://selections.pk/products?category=${product.category.slug}` }] : []),
+                { "@type": "ListItem", "position": product.category ? 4 : 3, "name": product.name, "item": `https://selections.pk/products/${product.slug}` }
+              ]
+            }
+          ]
         })}</script>
       </Helmet>
 

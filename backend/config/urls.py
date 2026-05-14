@@ -7,6 +7,7 @@ from rest_framework_simplejwt.views import TokenRefreshView
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
+from apps.seo.views import sitemap_xml, robots_txt
 
 
 def health(request):
@@ -68,6 +69,8 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('', health, name='health'),
+    path('sitemap.xml', sitemap_xml, name='sitemap'),
+    path('robots.txt', robots_txt, name='robots'),
     path('django-admin/', admin.site.urls),
 
     # API v1

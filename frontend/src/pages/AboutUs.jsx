@@ -35,13 +35,48 @@ export default function AboutUs() {
   return (
     <>
       <Helmet>
-        <title>About Us – Selections.pk | Pakistan's Premium Fashion Store</title>
-        <meta name="description" content="Learn about Selections.pk — Pakistan's trusted online fashion store. Quality clothing, abayas, lawn suits delivered across Pakistan. Our story and values." />
-        <meta name="keywords" content="about selections.pk, pakistani fashion brand, online clothing store pakistan" />
+        <title>About Us – Selections.pk | Pakistan's Premium Fashion Store Since 2020</title>
+        <meta name="description" content="Learn about Selections.pk — Pakistan's trusted online fashion store since 2020. Premium quality clothing, abayas, lawn suits delivered to 10,000+ happy customers across Pakistan." />
+        <meta name="keywords" content="about selections.pk, pakistani fashion brand, online clothing store pakistan, selections pk story, premium fashion pakistan" />
         <link rel="canonical" href="https://selections.pk/about" />
-        <meta property="og:title" content="About Us – Selections.pk" />
-        <meta property="og:description" content="Pakistan's trusted online fashion store. Quality clothing, abayas & lawn suits delivered across Pakistan." />
+        <meta property="og:title" content="About Selections.pk – Pakistan's Premium Fashion Store" />
+        <meta property="og:description" content="Pakistan's trusted online fashion store since 2020. 10,000+ happy customers, 500+ products, nationwide delivery." />
         <meta property="og:url" content="https://selections.pk/about" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "About Selections.pk",
+          "url": "https://selections.pk/about",
+          "description": "Selections.pk is Pakistan's trusted premium online fashion store, offering quality clothing, abayas, lawn suits, kameez and accessories since 2020.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://selections.pk" },
+              { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://selections.pk/about" }
+            ]
+          },
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Selections.pk",
+            "url": "https://selections.pk",
+            "foundingDate": "2020",
+            "description": "Premium Pakistani online fashion store offering abayas, lawn suits, kameez and accessories with nationwide delivery.",
+            "numberOfEmployees": { "@type": "QuantitativeValue", "value": 10 },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "123 Fashion Street, Saddar",
+              "addressLocality": "Karachi",
+              "addressCountry": "PK"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+92-317-8968927",
+              "contactType": "customer service",
+              "areaServed": "PK"
+            }
+          }
+        })}</script>
       </Helmet>
 
       {/* Hero */}

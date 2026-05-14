@@ -209,14 +209,78 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Selections.pk – Premium Fashion Store Pakistan</title>
-        <meta name="description" content="Shop the latest clothing, abayas, lawn suits, kameez & accessories at Selections.pk. Free shipping on orders over PKR 2,000. Delivered across Pakistan." />
-        <meta name="keywords" content="buy clothes online pakistan, lawn suits 2026, abayas pakistan, women fashion pakistan, selections.pk, pakistani dress online" />
+        <title>Selections.pk – Premium Fashion Store Pakistan | Abayas, Lawn Suits & More</title>
+        <meta name="description" content="Shop the latest clothing, abayas, lawn suits, kameez & accessories at Selections.pk. Free shipping on orders over PKR 2,000. Cash on delivery across all of Pakistan." />
+        <meta name="keywords" content="buy clothes online pakistan, lawn suits 2026, abayas pakistan, women fashion pakistan, selections.pk, pakistani dress online, shalwar kameez online, kameez dupatta pakistan, online shopping pakistan fashion" />
         <link rel="canonical" href="https://selections.pk/" />
         <meta property="og:title" content="Selections.pk – Premium Fashion Store Pakistan" />
-        <meta property="og:description" content="Shop premium clothing, abayas, lawn suits & accessories. Free shipping on orders over PKR 2,000." />
+        <meta property="og:description" content="Shop premium clothing, abayas, lawn suits & accessories. Free shipping on orders over PKR 2,000. COD available." />
         <meta property="og:url" content="https://selections.pk/" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://selections.pk/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Selections.pk – Premium Fashion Store Pakistan" />
+        <meta name="twitter:description" content="Shop premium Pakistani fashion online. Abayas, lawn suits, kameez & accessories. COD available across Pakistan." />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://selections.pk/#organization",
+              "name": "Selections.pk",
+              "url": "https://selections.pk",
+              "logo": { "@type": "ImageObject", "url": "https://selections.pk/logo.png" },
+              "description": "Pakistan's premium online fashion store offering abayas, lawn suits, kameez, and accessories with nationwide delivery.",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+92-317-8968927",
+                "contactType": "customer service",
+                "areaServed": "PK",
+                "availableLanguage": ["English", "Urdu"]
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "123 Fashion Street, Saddar",
+                "addressLocality": "Karachi",
+                "addressCountry": "PK"
+              },
+              "sameAs": [
+                "https://www.facebook.com/selections.pk",
+                "https://www.instagram.com/selections.pk"
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://selections.pk/#website",
+              "url": "https://selections.pk",
+              "name": "Selections.pk",
+              "publisher": { "@id": "https://selections.pk/#organization" },
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://selections.pk/products?search={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "Store",
+              "name": "Selections.pk",
+              "url": "https://selections.pk",
+              "description": "Buy premium Pakistani fashion online — abayas, lawn suits, kameez, shalwar kameez, and accessories. Free shipping over PKR 2,000. Cash on delivery available across Pakistan.",
+              "priceRange": "PKR 500–PKR 10,000",
+              "telephone": "+92-317-8968927",
+              "currenciesAccepted": "PKR",
+              "paymentAccepted": "Cash on Delivery",
+              "openingHours": "Mo-Sa 10:00-20:00",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "123 Fashion Street, Saddar",
+                "addressLocality": "Karachi",
+                "addressCountry": "PK"
+              },
+              "hasMap": "https://maps.google.com/?q=123+Fashion+Street+Saddar+Karachi"
+            }
+          ]
+        })}</script>
       </Helmet>
 
       {/* ── HERO ── */}
