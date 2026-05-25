@@ -6,10 +6,11 @@ import {
   MdSupportAgent, MdSend,
 } from 'react-icons/md'
 import {
-  FaFacebookF, FaInstagram, FaYoutube, FaTiktok,
+  FaFacebookF, FaInstagram, FaYoutube,
   FaArrowRight, FaChevronDown, FaChevronUp,
   FaBoxOpen, FaShippingFast,
-} from 'react-icons/fa6'
+} from 'react-icons/fa'
+import { FaTiktok } from 'react-icons/fa6'
 
 const FAQS = [
   { q: 'How long does delivery take?',      a: 'We deliver within 3–5 business days across Pakistan. Major cities like Karachi, Lahore, and Islamabad are typically delivered in 2–3 days.' },

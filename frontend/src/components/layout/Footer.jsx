@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import {
-  FaFacebookF, FaInstagram, FaYoutube, FaTiktok,
+  FaFacebookF, FaInstagram, FaYoutube,
   FaTruck, FaUndo, FaArrowRight, FaWhatsapp,
-} from 'react-icons/fa6'
+} from 'react-icons/fa'
+import { FaTiktok } from 'react-icons/fa6'
 import { MdLock, MdLocationOn, MdPhone, MdEmail, MdAccessTime } from 'react-icons/md'
 
 export default function Footer() {
