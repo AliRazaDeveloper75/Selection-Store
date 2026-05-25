@@ -65,8 +65,10 @@ export default function AboutUs() {
             "numberOfEmployees": { "@type": "QuantitativeValue", "value": 10 },
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "123 Fashion Street, Saddar",
-              "addressLocality": "Karachi",
+              "streetAddress": "28 Davis Road, Garhi Shahu",
+              "addressLocality": "Lahore",
+              "addressRegion": "Punjab",
+              "postalCode": "54000",
               "addressCountry": "PK"
             },
             "contactPoint": {

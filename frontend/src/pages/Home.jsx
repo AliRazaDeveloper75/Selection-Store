@@ -240,13 +240,17 @@ export default function Home() {
               },
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "123 Fashion Street, Saddar",
-                "addressLocality": "Karachi",
+                "streetAddress": "28 Davis Road, Garhi Shahu",
+                "addressLocality": "Lahore",
+                "addressRegion": "Punjab",
+                "postalCode": "54000",
                 "addressCountry": "PK"
               },
               "sameAs": [
-                "https://www.facebook.com/selections.pk",
-                "https://www.instagram.com/selections.pk"
+                "https://www.facebook.com/selections.official",
+                "https://www.instagram.com/selections.pk/",
+                "https://www.youtube.com/@Selections.Offical",
+                "https://www.tiktok.com/@selections.official"
               ]
             },
             {
@@ -273,11 +277,13 @@ export default function Home() {
               "openingHours": "Mo-Sa 10:00-20:00",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "123 Fashion Street, Saddar",
-                "addressLocality": "Karachi",
+                "streetAddress": "28 Davis Road, Garhi Shahu",
+                "addressLocality": "Lahore",
+                "addressRegion": "Punjab",
+                "postalCode": "54000",
                 "addressCountry": "PK"
               },
-              "hasMap": "https://maps.google.com/?q=123+Fashion+Street+Saddar+Karachi"
+              "hasMap": "https://maps.google.com/?q=28+Davis+Road+Garhi+Shahu+Lahore+Pakistan"
             }
           ]
         })}</script>

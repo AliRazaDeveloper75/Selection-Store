@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import {
-  FaFacebookF, FaInstagram, FaYoutube, FaTwitter,
+  FaFacebookF, FaInstagram, FaYoutube, FaTiktok,
   FaTruck, FaUndo, FaArrowRight, FaWhatsapp,
-} from 'react-icons/fa'
+} from 'react-icons/fa6'
 import { MdLock, MdLocationOn, MdPhone, MdEmail, MdAccessTime } from 'react-icons/md'
 
 export default function Footer() {
@@ -32,12 +32,12 @@ export default function Footer() {
             {/* Social icons */}
             <div className="flex gap-3 mt-6">
               {[
-                { Icon: FaFacebookF,  name: 'Facebook',  hoverBg: 'hover:bg-blue-600' },
-                { Icon: FaInstagram,  name: 'Instagram', hoverBg: 'hover:bg-pink-600' },
-                { Icon: FaYoutube,    name: 'YouTube',   hoverBg: 'hover:bg-red-600' },
-                { Icon: FaTwitter,    name: 'Twitter',   hoverBg: 'hover:bg-sky-500' },
-              ].map(({ Icon, name, hoverBg }) => (
-                <a key={name} href="#" title={name}
+                { Icon: FaFacebookF, name: 'Facebook',  href: 'https://www.facebook.com/selections.official', hoverBg: 'hover:bg-blue-600' },
+                { Icon: FaInstagram, name: 'Instagram', href: 'https://www.instagram.com/selections.pk/',     hoverBg: 'hover:bg-pink-600' },
+                { Icon: FaYoutube,   name: 'YouTube',   href: 'https://www.youtube.com/@Selections.Offical',  hoverBg: 'hover:bg-red-600' },
+                { Icon: FaTiktok,    name: 'TikTok',    href: 'https://www.tiktok.com/@selections.official',  hoverBg: 'hover:bg-gray-700' },
+              ].map(({ Icon, name, href, hoverBg }) => (
+                <a key={name} href={href} title={name} target="_blank" rel="noopener noreferrer"
                   className={`w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-white transition-all hover:scale-110 ${hoverBg}`}>
                   <Icon className="w-4 h-4" />
                 </a>
@@ -107,7 +107,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-2.5">
                 <MdLocationOn className="w-4 h-4 text-[#f09c27] mt-0.5 flex-shrink-0" />
-                <span>123 Fashion Street, Saddar, Karachi, Pakistan</span>
+                <span>28 Davis Road, Garhi Shahu, Lahore, 54000, Pakistan</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <MdPhone className="w-4 h-4 text-[#f09c27] flex-shrink-0" />

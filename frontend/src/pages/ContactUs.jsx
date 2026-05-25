@@ -6,10 +6,10 @@ import {
   MdSupportAgent, MdSend,
 } from 'react-icons/md'
 import {
-  FaFacebookF, FaInstagram, FaYoutube, FaTwitter,
+  FaFacebookF, FaInstagram, FaYoutube, FaTiktok,
   FaArrowRight, FaChevronDown, FaChevronUp,
   FaBoxOpen, FaShippingFast,
-} from 'react-icons/fa'
+} from 'react-icons/fa6'
 
 const FAQS = [
   { q: 'How long does delivery take?',      a: 'We deliver within 3–5 business days across Pakistan. Major cities like Karachi, Lahore, and Islamabad are typically delivered in 2–3 days.' },
@@ -21,17 +21,17 @@ const FAQS = [
 ]
 
 const CONTACT_CARDS = [
-  { Icon: MdLocationOn,  title: 'Visit Us',        lines: ['123 Fashion Street', 'Saddar, Karachi', 'Pakistan'],         color: 'bg-blue-50 text-blue-600' },
+  { Icon: MdLocationOn,  title: 'Visit Us',        lines: ['28 Davis Road', 'Garhi Shahu, Lahore', '54000, Pakistan'],   color: 'bg-blue-50 text-blue-600' },
   { Icon: MdPhone,       title: 'Call Us',          lines: ['+92 317 8968927', 'Mon–Sat, 10am–8pm'], color: 'bg-green-50 text-green-600' },
-  { Icon: MdEmail,       title: 'Email Us',         lines: ['info@selections.pk.com', 'support@selections.pk.com', 'Response within 24 hrs'], color: 'bg-orange-50 text-orange-600' },
+  { Icon: MdEmail,       title: 'Email Us',         lines: ['info@selections.pk', 'support@selections.pk', 'Response within 24 hrs'], color: 'bg-orange-50 text-orange-600' },
   { Icon: MdAccessTime,  title: 'Business Hours',   lines: ['Mon–Fri: 10am – 8pm', 'Saturday: 10am – 6pm', 'Sunday: Closed'],           color: 'bg-purple-50 text-purple-600' },
 ]
 
 const SOCIAL = [
-  { Icon: FaFacebookF, label: 'Facebook',  handle: '@selections.pk', bg: 'bg-blue-600' },
-  { Icon: FaInstagram, label: 'Instagram', handle: '@selections.pk', bg: 'bg-pink-600' },
-  { Icon: FaYoutube,   label: 'YouTube',   handle: 'Selections.pk', bg: 'bg-red-600' },
-  { Icon: FaTwitter,   label: 'Twitter',   handle: '@selections.pk', bg: 'bg-sky-500' },
+  { Icon: FaFacebookF, label: 'Facebook',  handle: '@selections.official', href: 'https://www.facebook.com/selections.official', bg: 'bg-blue-600' },
+  { Icon: FaInstagram, label: 'Instagram', handle: '@selections.pk',       href: 'https://www.instagram.com/selections.pk/',    bg: 'bg-pink-600' },
+  { Icon: FaYoutube,   label: 'YouTube',   handle: '@Selections.Offical',  href: 'https://www.youtube.com/@Selections.Offical', bg: 'bg-red-600' },
+  { Icon: FaTiktok,    label: 'TikTok',    handle: '@selections.official', href: 'https://www.tiktok.com/@selections.official', bg: 'bg-gray-800' },
 ]
 
 export default function ContactUs() {
@@ -45,12 +45,12 @@ export default function ContactUs() {
   return (
     <>
       <Helmet>
-        <title>Contact Us – Selections.pk | Call +92 317 8968927 | Karachi Fashion Store</title>
-        <meta name="description" content="Contact Selections.pk for orders, returns or product questions. Call +92 317 8968927 or WhatsApp us. Visit us at 123 Fashion Street, Saddar, Karachi. Mon–Sat 10am–8pm." />
-        <meta name="keywords" content="contact selections.pk, selections.pk phone number, selections.pk customer support, selections pk karachi, fashion store karachi contact" />
+        <title>Contact Us – Selections.pk | Call +92 317 8968927 | Lahore Fashion Store</title>
+        <meta name="description" content="Contact Selections.pk for orders, returns or product questions. Call +92 317 8968927 or WhatsApp us. Visit us at 28 Davis Road, Garhi Shahu, Lahore. Mon–Sat 10am–8pm." />
+        <meta name="keywords" content="contact selections.pk, selections.pk phone number, selections.pk customer support, selections pk lahore, fashion store lahore contact" />
         <link rel="canonical" href="https://selections.pk/contact" />
         <meta property="og:title" content="Contact Selections.pk – Call +92 317 8968927" />
-        <meta property="og:description" content="Contact Selections.pk for orders or returns. Call or WhatsApp +92 317 8968927. Mon–Sat 10am–8pm. Based in Karachi, Pakistan." />
+        <meta property="og:description" content="Contact Selections.pk for orders or returns. Call or WhatsApp +92 317 8968927. Mon–Sat 10am–8pm. Based in Lahore, Pakistan." />
         <meta property="og:url" content="https://selections.pk/contact" />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{JSON.stringify({
@@ -72,14 +72,17 @@ export default function ContactUs() {
               ],
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "123 Fashion Street, Saddar",
-                "addressLocality": "Karachi",
-                "addressRegion": "Sindh",
+                "streetAddress": "28 Davis Road, Garhi Shahu",
+                "addressLocality": "Lahore",
+                "addressRegion": "Punjab",
+                "postalCode": "54000",
                 "addressCountry": "PK"
               },
               "sameAs": [
-                "https://www.facebook.com/selections.pk",
-                "https://www.instagram.com/selections.pk"
+                "https://www.facebook.com/selections.official",
+                "https://www.instagram.com/selections.pk/",
+                "https://www.youtube.com/@Selections.Offical",
+                "https://www.tiktok.com/@selections.official"
               ]
             },
             {
@@ -134,9 +137,9 @@ export default function ContactUs() {
               style={{ background: '#f09c27', color: '#1a1a2e' }}>
               📞 +92 317 8968927
             </a>
-            <a href="mailto:info@selections.pk.com"
+            <a href="mailto:info@selections.pk"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border-2 border-white/30 text-white hover:bg-white/10 transition-all">
-              ✉️ info@selections.pk.com
+              ✉️ info@selections.pk
             </a>
           </div>
         </div>
@@ -240,8 +243,8 @@ export default function ContactUs() {
               <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
                 <h3 className="font-heading font-bold text-gray-900 mb-4">Follow Us</h3>
                 <div className="space-y-3">
-                  {SOCIAL.map(({ Icon, label, handle, bg }) => (
-                    <a key={label} href="#"
+                  {SOCIAL.map(({ Icon, label, handle, href, bg }) => (
+                    <a key={label} href={href} target="_blank" rel="noopener noreferrer"
                       className="flex items-center gap-3 p-3 rounded-xl bg-white border border-gray-100 hover:border-[#f09c27]/30 hover:shadow-sm transition-all group">
                       <div className={`w-9 h-9 ${bg} rounded-lg flex items-center justify-center text-white flex-shrink-0`}>
                         <Icon className="w-4 h-4" />
@@ -318,8 +321,8 @@ export default function ContactUs() {
           <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm flex flex-col items-center justify-center gap-3 text-gray-400"
             style={{ height: '300px', background: 'linear-gradient(135deg, #f0f4f8, #e2e8f0)' }}>
             <MdLocationOn className="w-14 h-14 text-[#f09c27]" />
-            <p className="font-semibold text-gray-600">123 Fashion Street, Saddar, Karachi</p>
-            <p className="text-sm">Open in Google Maps</p>
+            <p className="font-semibold text-gray-600">28 Davis Road, Garhi Shahu, Lahore 54000</p>
+            <a href="https://maps.google.com/?q=28+Davis+Road+Garhi+Shahu+Lahore+Pakistan" target="_blank" rel="noopener noreferrer" className="text-sm text-[#f09c27] hover:underline">Open in Google Maps</a>
           </div>
         </div>
       </section>
