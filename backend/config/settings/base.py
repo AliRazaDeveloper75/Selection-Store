@@ -40,6 +40,7 @@ LOCAL_APPS = [
     'apps.payments',
     'apps.coupons',
     'apps.reviews',
+    'apps.seo',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -176,6 +177,9 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='Cloth by AFS <noreply@clothbyafs.com>')
 
 FRONTEND_URL = config('FRONTEND_URL', default='http://localhost:5173')
+
+# IndexNow — instant indexing for Bing/Yandex when products are published
+INDEXNOW_KEY = config('INDEXNOW_KEY', default='selectionspk2026seo')
 
 # Stripe
 STRIPE_PUBLIC_KEY = config('STRIPE_PUBLIC_KEY', default='')

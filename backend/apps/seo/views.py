@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.utils import timezone
+from django.conf import settings
 from apps.products.models import Product, Category, ProductImage
 
 
@@ -84,3 +85,9 @@ Disallow: /wishlist
 Disallow: /order-success/
 """
     return HttpResponse(content, content_type='text/plain; charset=utf-8')
+
+
+def indexnow_key(request):
+    """Serves /{key}.txt required by IndexNow verification."""
+    key = getattr(settings, 'INDEXNOW_KEY', '')
+    return HttpResponse(key, content_type='text/plain; charset=utf-8')

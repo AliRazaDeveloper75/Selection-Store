@@ -7,7 +7,8 @@ from rest_framework_simplejwt.views import TokenRefreshView
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
-from apps.seo.views import sitemap_xml, robots_txt
+from apps.seo.views import sitemap_xml, robots_txt, indexnow_key
+from django.conf import settings as django_settings
 
 
 def health(request):
@@ -71,6 +72,7 @@ urlpatterns = [
     path('', health, name='health'),
     path('sitemap.xml', sitemap_xml, name='sitemap'),
     path('robots.txt', robots_txt, name='robots'),
+    path(f'{django_settings.INDEXNOW_KEY}.txt', indexnow_key, name='indexnow-key'),
     path('django-admin/', admin.site.urls),
 
     # API v1
