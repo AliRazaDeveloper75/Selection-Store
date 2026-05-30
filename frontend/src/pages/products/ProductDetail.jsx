@@ -11,6 +11,53 @@ import Rating from '@/components/common/Rating'
 import { PageLoader } from '@/components/common/Loader'
 import { formatPrice, formatDate } from '@/utils/helpers'
 
+const BULLET_RE = /^[✓✔•‣◦⁃\-\*]\s*/
+
+function renderDescription(text) {
+  if (!text) return null
+  const lines = text.split('\n')
+  const blocks = []
+  let bulletGroup = []
+
+  const flushBullets = () => {
+    if (bulletGroup.length === 0) return
+    blocks.push(
+      <ul key={blocks.length} className="mt-3 mb-3 space-y-1.5 pl-1">
+        {bulletGroup.map((line, i) => (
+          <li key={i} className="flex items-start gap-2.5 text-sm text-gray-700">
+            <span className="mt-0.5 w-4 h-4 shrink-0 rounded-full bg-[#f09c27]/15 flex items-center justify-center">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#f09c27] block" />
+            </span>
+            <span>{line.replace(BULLET_RE, '').trim()}</span>
+          </li>
+        ))}
+      </ul>
+    )
+    bulletGroup = []
+  }
+
+  lines.forEach((raw) => {
+    const line = raw.trim()
+    if (!line) {
+      flushBullets()
+      return
+    }
+    if (BULLET_RE.test(line)) {
+      bulletGroup.push(line)
+    } else {
+      flushBullets()
+      const isHeading = line.endsWith(':') && line.length < 80
+      blocks.push(
+        isHeading
+          ? <p key={blocks.length} className="mt-4 mb-1 font-semibold text-gray-900 text-sm">{line}</p>
+          : <p key={blocks.length} className="text-sm text-gray-700 leading-relaxed">{line}</p>
+      )
+    }
+  })
+  flushBullets()
+  return blocks
+}
+
 export default function ProductDetail() {
   const { slug } = useParams()
   const navigate = useNavigate()
@@ -288,8 +335,8 @@ export default function ProductDetail() {
         </div>
 
         {activeTab === 'description' ? (
-          <div className="prose prose-sm max-w-none text-gray-700">
-            <p>{product.description}</p>
+          <div className="max-w-none">
+            {renderDescription(product.description)}
           </div>
         ) : (
           <div className="space-y-6">
