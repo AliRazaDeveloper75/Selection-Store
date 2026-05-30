@@ -8,11 +8,24 @@ import { toggleWishlist } from '@/store/slices/wishlistSlice'
 import Rating from '@/components/common/Rating'
 import { formatPrice } from '@/utils/helpers'
 
+const DEMO_STARS  = [4.8, 4.5, 4.7, 5.0, 4.3, 4.6, 4.9, 4.4]
+const DEMO_COUNTS = [18, 12, 24, 15, 21, 11, 19, 14, 23, 17, 13, 22, 16, 20, 25, 10]
+
+function demoRating(id) {
+  return DEMO_STARS[id % DEMO_STARS.length]
+}
+function demoCount(id) {
+  return DEMO_COUNTS[id % DEMO_COUNTS.length]
+}
+
 export default function ProductCard({ product }) {
   const dispatch = useDispatch()
   const { isAuthenticated } = useSelector((s) => s.auth)
   const { products: wishlistProducts } = useSelector((s) => s.wishlist)
   const isWishlisted = wishlistProducts.some((p) => p.id === product.id)
+
+  const displayRating = product.avg_rating > 0 ? product.avg_rating : demoRating(product.id)
+  const displayCount  = product.review_count > 0 ? product.review_count : demoCount(product.id)
 
   const handleAddToCart = (e) => {
     e.preventDefault()
@@ -84,7 +97,7 @@ export default function ProductCard({ product }) {
         <h3 className="text-sm font-semibold text-gray-800 line-clamp-2 mb-1 group-hover:text-primary transition-colors">
           {product.name}
         </h3>
-        <Rating value={product.avg_rating} count={product.review_count} />
+        <Rating value={displayRating} count={displayCount} />
         <div className="flex items-center gap-2 mt-1">
           <span className="text-base font-bold text-primary">{formatPrice(product.effective_price)}</span>
           {product.discount_price && (

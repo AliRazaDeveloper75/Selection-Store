@@ -105,7 +105,7 @@ const HERO_SLIDES = [
 ]
 
 const FEATURES = [
-  { Icon: FaTruck,       title: 'Free Shipping',   desc: 'On orders over PKR 2,000', color: 'bg-blue-50 text-blue-600' },
+  { Icon: FaTruck,       title: 'Free Delivery',   desc: 'On orders PKR 2,500 or above', color: 'bg-blue-50 text-blue-600' },
   { Icon: FaUndo,        title: 'Easy Returns',    desc: '7-day hassle-free returns', color: 'bg-green-50 text-green-600' },
   { Icon: FaLock,        title: 'Secure Payment',  desc: '100% safe checkout',        color: 'bg-purple-50 text-purple-600' },
   { Icon: FaHeadset,     title: '24/7 Support',    desc: 'Always here to help',       color: 'bg-orange-50 text-orange-600' },
@@ -358,7 +358,7 @@ export default function Home() {
 
             {/* Trust badges */}
             <div className="flex flex-wrap gap-4 mt-8 text-xs text-white/55">
-              <span className="flex items-center gap-1.5"><MdLocalShipping className="w-3.5 h-3.5" style={{ color: cur.accentColor }} /> Free shipping over PKR 2,000</span>
+              <span className="flex items-center gap-1.5"><MdLocalShipping className="w-3.5 h-3.5" style={{ color: cur.accentColor }} /> Free delivery on orders PKR 2,500+</span>
               <span className="flex items-center gap-1.5"><FaUndo className="w-3 h-3" style={{ color: cur.accentColor }} /> 7-day easy returns</span>
               <span className="flex items-center gap-1.5"><FaShoppingBag className="w-3 h-3" style={{ color: cur.accentColor }} /> Cash on delivery</span>
             </div>

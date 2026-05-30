@@ -32,7 +32,7 @@ export default function Cart() {
     )
   }
 
-  const shippingCost = subtotal >= 2000 ? 0 : 200
+  const shippingCost = subtotal >= 2500 ? 0 : 100
   const total = Number(subtotal) + shippingCost
 
   return (
@@ -108,7 +108,7 @@ export default function Cart() {
                   </span>
                 </div>
                 {shippingCost > 0 && (
-                  <p className="text-xs text-gray-400">Add {formatPrice(2000 - subtotal)} more for free shipping</p>
+                  <p className="text-xs text-gray-400">Add {formatPrice(2500 - subtotal)} more for free delivery</p>
                 )}
                 <hr />
                 <div className="flex justify-between text-base font-bold">

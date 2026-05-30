@@ -58,6 +58,9 @@ function renderDescription(text) {
   return blocks
 }
 
+const DEMO_STARS_D  = [4.8, 4.5, 4.7, 5.0, 4.3, 4.6, 4.9, 4.4]
+const DEMO_COUNTS_D = [18, 12, 24, 15, 21, 11, 19, 14, 23, 17, 13, 22, 16, 20, 25, 10]
+
 export default function ProductDetail() {
   const { slug } = useParams()
   const navigate = useNavigate()
@@ -140,11 +143,11 @@ export default function ProductDetail() {
     <>
       <Helmet>
         <title>{product.name} – Buy Online Pakistan | Selections.pk | COD Available</title>
-        <meta name="description" content={`Buy ${product.name} online at Selections.pk Pakistan. ${product.short_description || product.description?.slice(0, 110) || ''} Free shipping over PKR 2,000. Cash on delivery available.`} />
+        <meta name="description" content={`Buy ${product.name} online at Selections.pk Pakistan. ${product.short_description || product.description?.slice(0, 110) || ''} Free delivery on orders PKR 2,500+. Cash on delivery available.`} />
         <meta name="keywords" content={`${product.name}, buy ${product.name} online pakistan, ${product.name} price pakistan, selections.pk, ${product.category?.name || 'fashion'} pakistan`} />
         <link rel="canonical" href={`https://selections.pk/products/${product.slug}`} />
         <meta property="og:title" content={`${product.name} – Selections.pk Pakistan`} />
-        <meta property="og:description" content={`Buy ${product.name} online at Selections.pk. Free shipping over PKR 2,000. COD available across Pakistan.`} />
+        <meta property="og:description" content={`Buy ${product.name} online at Selections.pk. Free delivery on orders PKR 2,500+. COD available across Pakistan.`} />
         <meta property="og:image" content={product.images?.[0]?.image || 'https://selections.pk/og-image.jpg'} />
         <meta property="og:type" content="product" />
         <meta property="og:url" content={`https://selections.pk/products/${product.slug}`} />
@@ -243,8 +246,16 @@ export default function ProductDetail() {
             <h1 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 mb-3">{product.name}</h1>
 
             <div className="flex items-center gap-3 mb-4">
-              <Rating value={product.avg_rating} count={product.review_count} size="md" />
-              <span className="text-sm text-gray-500">({product.review_count} reviews)</span>
+              {(() => {
+                const dr = product.avg_rating > 0 ? product.avg_rating : DEMO_STARS_D[product.id % DEMO_STARS_D.length]
+                const dc = product.review_count > 0 ? product.review_count : DEMO_COUNTS_D[product.id % DEMO_COUNTS_D.length]
+                return (
+                  <>
+                    <Rating value={dr} count={dc} size="md" />
+                    <span className="text-sm text-gray-500">({dc} reviews)</span>
+                  </>
+                )
+              })()}
             </div>
 
             {/* Price */}
@@ -309,7 +320,7 @@ export default function ProductDetail() {
             {/* Info chips */}
             <div className="grid grid-cols-2 gap-3 p-4 bg-gray-50 rounded-xl">
               {[
-                { icon: <TruckIcon className="w-5 h-5" />, text: 'Free delivery over PKR 2,000' },
+                { icon: <TruckIcon className="w-5 h-5" />, text: 'Free delivery on orders PKR 2,500+' },
                 { icon: <ArrowPathIcon className="w-5 h-5" />, text: '7-day easy return' },
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2 text-sm text-gray-600">

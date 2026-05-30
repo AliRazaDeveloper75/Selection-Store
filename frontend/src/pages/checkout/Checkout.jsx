@@ -50,7 +50,7 @@ export default function Checkout() {
     return null
   }
 
-  const shippingCost    = Number(subtotal) >= 2000 ? 0 : 200
+  const shippingCost    = Number(subtotal) >= 2500 ? 0 : 100
   const discountAmount  = Number(couponData?.discount_amount || 0)
   const total           = Number(subtotal) + shippingCost - discountAmount
 
@@ -432,14 +432,13 @@ export default function Checkout() {
                     </div>
                   )}
 
-                  {shippingCost === 0 && Number(subtotal) >= 2000 && (
+                  {shippingCost === 0 ? (
                     <p className="text-xs text-green-600 bg-green-50 rounded-lg px-2 py-1">
-                      ✓ Free shipping on orders over PKR 2,000
+                      🎉 Free delivery applied — order PKR 2,500+
                     </p>
-                  )}
-                  {shippingCost > 0 && (
-                    <p className="text-xs text-gray-400">
-                      Add {formatPrice(2000 - Number(subtotal))} more for free shipping
+                  ) : (
+                    <p className="text-xs text-gray-400 bg-gray-50 rounded-lg px-2 py-1">
+                      📦 Delivery: PKR 100 &nbsp;·&nbsp; Add {formatPrice(2500 - Number(subtotal))} more for free delivery
                     </p>
                   )}
 
