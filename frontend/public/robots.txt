@@ -3,7 +3,7 @@ Allow: /
 
 Sitemap: https://selections.pk/sitemap.xml
 
-# Block admin, API, and private user routes
+# Private user pages
 Disallow: /admin/
 Disallow: /api/
 Disallow: /django-admin/
@@ -13,3 +13,15 @@ Disallow: /profile
 Disallow: /orders
 Disallow: /wishlist
 Disallow: /order-success/
+Disallow: /login
+Disallow: /register
+
+# Filter/parameter URLs — not canonical pages
+Disallow: /products?has_discount
+Disallow: /products?is_featured
+Disallow: /products?ordering
+Disallow: /products?min_price
+Disallow: /products?max_price
+Disallow: /products?in_stock
+Disallow: /products?search
+Disallow: /products?page

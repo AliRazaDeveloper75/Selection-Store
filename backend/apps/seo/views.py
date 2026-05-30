@@ -12,8 +12,10 @@ def sitemap_xml(request):
         {'loc': f'{base}/',         'changefreq': 'daily',   'priority': '1.0', 'lastmod': today},
         {'loc': f'{base}/products', 'changefreq': 'daily',   'priority': '0.9', 'lastmod': today},
         {'loc': f'{base}/about',    'changefreq': 'monthly', 'priority': '0.7', 'lastmod': today},
-        {'loc': f'{base}/contact',  'changefreq': 'monthly', 'priority': '0.7', 'lastmod': today},
+        {'loc': f'{base}/contact',  'changefreq': 'monthly', 'priority': '0.6', 'lastmod': today},
     ]
+    # Note: filter URLs (?has_discount, ?is_featured, ?ordering) are intentionally
+    # excluded — they are parameterized views, not canonical pages.
 
     products = Product.objects.filter(is_active=True).prefetch_related('images').order_by('-updated_at')
     categories = Category.objects.filter(is_active=True).values('slug', 'created_at')
@@ -74,6 +76,7 @@ Allow: /
 
 Sitemap: https://selections.pk/sitemap.xml
 
+# Private user pages
 Disallow: /admin/
 Disallow: /api/
 Disallow: /django-admin/
@@ -83,6 +86,18 @@ Disallow: /profile
 Disallow: /orders
 Disallow: /wishlist
 Disallow: /order-success/
+Disallow: /login
+Disallow: /register
+
+# Filter/parameter URLs — not canonical pages
+Disallow: /products?has_discount
+Disallow: /products?is_featured
+Disallow: /products?ordering
+Disallow: /products?min_price
+Disallow: /products?max_price
+Disallow: /products?in_stock
+Disallow: /products?search
+Disallow: /products?page
 """
     return HttpResponse(content, content_type='text/plain; charset=utf-8')
 
