@@ -145,8 +145,10 @@ export default function ProductList() {
         </div>
 
         <div className="flex gap-8">
-          {/* Filters sidebar */}
-          <ProductFilters filters={filters} onChange={handleFilterChange} />
+          {/* Filters sidebar — hidden on mobile to prevent unwanted flex gap */}
+          <div className="hidden lg:block shrink-0">
+            <ProductFilters filters={filters} onChange={handleFilterChange} />
+          </div>
 
           {/* Products */}
           <div className="flex-1 min-w-0">
