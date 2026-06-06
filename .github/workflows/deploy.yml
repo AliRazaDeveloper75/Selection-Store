@@ -1,4 +1,4 @@
-name: Deploy to AWS EC2
+name: Deploy to VPS
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    name: Deploy to EC2
+    name: Deploy via Docker Compose
     runs-on: ubuntu-latest
 
     steps:
@@ -25,26 +25,12 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
 
-            echo "── Installing backend dependencies ──"
-            cd ~/Selection-Store/backend
-            ~/Selection-Store/backend/venv/bin/pip install --upgrade setuptools --quiet
-            ~/Selection-Store/backend/venv/bin/pip install -r requirements.txt --quiet
+            echo "── Building and restarting containers ──"
+            docker compose build --no-cache
+            docker compose up -d
 
-            echo "── Running database migrations ──"
-            ~/Selection-Store/backend/venv/bin/python manage.py migrate --noinput
-
-            echo "── Collecting static files ──"
-            ~/Selection-Store/backend/venv/bin/python manage.py collectstatic --noinput
-
-            echo "── Restarting backend ──"
-            sudo systemctl restart selections-backend
-
-            echo "── Building frontend ──"
-            cd ~/Selection-Store/frontend
-            npm install --silent
-            npm run build
-
-            echo "── Reloading nginx ──"
-            sudo systemctl reload nginx
+            echo "── Removing unused images ──"
+            docker image prune -f
 
             echo "── Deploy complete: $(date) ──"
+            docker compose ps
