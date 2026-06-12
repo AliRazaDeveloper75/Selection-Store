@@ -542,7 +542,7 @@ export default function Home() {
               </div>
             </div>
             <div className="relative overflow-hidden rounded-2xl text-white group cursor-pointer" style={{ minHeight: '240px' }}>
-              <img src="https://images.unsplash.com/photo-1609802570143-bf97b6af4e37?w=800&q=80&fit=crop" alt="Women's Collection"
+              <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=80&fit=crop" alt="Women's Collection"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               <div className="absolute inset-0" style={{ background: 'rgba(60,10,30,0.65)' }} />
               <div className="relative z-10 p-8 flex flex-col justify-end h-full" style={{ minHeight: '240px' }}>
