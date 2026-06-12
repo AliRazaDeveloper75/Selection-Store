@@ -44,6 +44,7 @@ import PrivateRoute from './components/common/PrivateRoute'
 import AdminRoute from './components/common/AdminRoute'
 import ErrorBoundary from './admin/components/ErrorBoundary'
 import ScrollToTop from './components/common/ScrollToTop'
+import WelcomePopup from './components/common/WelcomePopup'
 
 export default function App() {
   const dispatch = useDispatch()
@@ -60,6 +61,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <WelcomePopup />
       <Routes>
         {/* Public store */}
         <Route element={<Layout />}>
