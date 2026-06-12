@@ -89,6 +89,20 @@ const HERO_SLIDES = [
     tag: 'Accessories',
   },
   {
+    badge: '🌸 Selections Scents',
+    title: 'Premium',
+    titleHighlight: 'Perfumes',
+    subtitle: 'Discover our exclusive fragrance collection — long-lasting, luxury scents crafted for every occasion',
+    cta: 'Shop Perfumes',
+    ctaLink: '/products?category=perfume-fragrance',
+    secondary: 'All Products',
+    secondaryLink: '/products',
+    image: 'https://images.unsplash.com/photo-1541643600914-78b084683702?w=1920&q=85&fit=crop',
+    overlay: 'linear-gradient(105deg, rgba(60,10,60,0.85) 0%, rgba(60,10,60,0.50) 55%, rgba(60,10,60,0.15) 100%)',
+    accentColor: '#e879f9',
+    tag: 'Selections Scents',
+  },
+  {
     badge: '🇵🇰 Made in Pakistan',
     title: 'Premium Quality',
     titleHighlight: 'Fashion',
@@ -162,6 +176,9 @@ const CatIcon = ({ name }) => {
   // Fashion / clothes / cloth / wear / dress / shirt
   if (n.includes('fashion') || n.includes('cloth') || n.includes('wear') || n.includes('dress') || n.includes('shirt') || n.includes('suit'))
     return <svg viewBox="0 0 24 24" fill="currentColor" className="w-9 h-9"><path d="M16 2.01 14 2c0 1.1-.9 2-2 2s-2-.9-2-2l-2 .01L6 6l1.5 1.5L9 6v13h6V6l1.5 1.5L18 6l-2-3.99z"/></svg>
+  // Perfume / scents / fragrance
+  if (n.includes('perfume') || n.includes('scent') || n.includes('fragrance') || n.includes('attar') || n.includes('oud') || n.includes('cologne'))
+    return <svg viewBox="0 0 24 24" fill="currentColor" className="w-9 h-9"><path d="M10 2h4v2h1a2 2 0 0 1 2 2v1a5 5 0 0 1-5 5H12a5 5 0 0 1-5-5V6a2 2 0 0 1 2-2h1V2zm1 4v2a3 3 0 0 0 6 0V6h-6zM7 13a7 7 0 0 0 10 0v1a5 5 0 0 1-10 0v-1zm5 3v6h-1v-6h1zm-3 6h8v1H9v-1z"/></svg>
   // Health / beauty / care / skin
   if (n.includes('health') || n.includes('beauty') || n.includes('care') || n.includes('skin') || n.includes('wellness') || n.includes('medical'))
     return <svg viewBox="0 0 24 24" fill="currentColor" className="w-9 h-9"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402C1 3.518 3.467 2 6 2c1.988 0 4.276 1.31 5.999 4.073C13.714 3.31 16.012 2 18 2c2.537 0 5 1.518 5 5.191 0 4.105-5.371 8.863-11 14.402z"/></svg>
@@ -209,28 +226,29 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Selections.pk – Premium Fashion Store Pakistan | Abayas, Lawn Suits & More</title>
-        <meta name="description" content="Shop the latest clothing, abayas, lawn suits, kameez & accessories at Selections.pk. Free shipping on orders over PKR 2,000. Cash on delivery across all of Pakistan." />
-        <meta name="keywords" content="buy clothes online pakistan, lawn suits 2026, abayas pakistan, women fashion pakistan, selections.pk, pakistani dress online, shalwar kameez online, kameez dupatta pakistan, online shopping pakistan fashion" />
+        <title>Selections Scents | Perfume & Premium Fashion Pakistan – Selections.pk</title>
+        <meta name="description" content="Selections Scents – Shop premium perfumes, fragrances, abayas, lawn suits & fashion at Selections.pk Pakistan. Free delivery on PKR 2,500+. COD available nationwide." />
+        <meta name="keywords" content="selections scents, selections perfume, selections fragrance, selections pk, selections pakistan, selections scents pk, buy perfume online pakistan, perfume lahore, fragrance pakistan, abayas pakistan, lawn suits 2026, online fashion pakistan, shalwar kameez online" />
         <link rel="canonical" href="https://selections.pk/" />
-        <meta property="og:title" content="Selections.pk – Premium Fashion Store Pakistan" />
-        <meta property="og:description" content="Shop premium clothing, abayas, lawn suits & accessories. Free shipping on orders over PKR 2,000. COD available." />
+        <meta property="og:title" content="Selections Scents | Perfume & Fashion – Selections.pk Pakistan" />
+        <meta property="og:description" content="Shop premium perfumes, fragrances & fashion at Selections Scents (Selections.pk). Free delivery PKR 2,500+. COD available." />
         <meta property="og:url" content="https://selections.pk/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://selections.pk/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Selections.pk – Premium Fashion Store Pakistan" />
-        <meta name="twitter:description" content="Shop premium Pakistani fashion online. Abayas, lawn suits, kameez & accessories. COD available across Pakistan." />
+        <meta name="twitter:title" content="Selections Scents | Perfume & Fashion – Selections.pk" />
+        <meta name="twitter:description" content="Shop premium perfumes, fragrances & Pakistani fashion at Selections Scents. COD available across Pakistan." />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@graph": [
             {
               "@type": "Organization",
               "@id": "https://selections.pk/#organization",
-              "name": "Selections.pk",
+              "name": "Selections Scents",
+              "alternateName": ["Selections.pk", "Selections Pakistan", "Selections Perfume", "Selections Fragrance", "Selections Scents PK"],
               "url": "https://selections.pk",
               "logo": { "@type": "ImageObject", "url": "https://selections.pk/logo.png" },
-              "description": "Pakistan's premium online fashion store offering abayas, lawn suits, kameez, and accessories with nationwide delivery.",
+              "description": "Selections Scents is Pakistan's trusted online store for premium perfumes, fragrances, abayas, lawn suits, kameez and fashion accessories with nationwide delivery.",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+92-317-8968927",
@@ -267,9 +285,10 @@ export default function Home() {
             },
             {
               "@type": "Store",
-              "name": "Selections.pk",
+              "name": "Selections Scents",
+              "alternateName": ["Selections.pk", "Selections Perfume Pakistan", "Selections Fragrance PK"],
               "url": "https://selections.pk",
-              "description": "Buy premium Pakistani fashion online — abayas, lawn suits, kameez, shalwar kameez, and accessories. Free shipping over PKR 2,000. Cash on delivery available across Pakistan.",
+              "description": "Selections Scents — buy premium perfumes, fragrances, abayas, lawn suits, kameez & accessories online in Pakistan. Free delivery on PKR 2,500+. Cash on delivery available.",
               "priceRange": "PKR 500–PKR 10,000",
               "telephone": "+92-317-8968927",
               "currenciesAccepted": "PKR",
