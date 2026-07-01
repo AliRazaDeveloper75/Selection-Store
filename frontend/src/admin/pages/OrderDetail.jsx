@@ -5,6 +5,8 @@ import { toast } from 'react-toastify'
 import api from '@/services/api'
 import { formatPrice, formatDate, getOrderStatusColor } from '@/utils/helpers'
 import { PageLoader } from '@/components/common/Loader'
+import { generateInvoicePDF } from '@/utils/generateInvoice'
+import { ArrowDownTrayIcon } from '@heroicons/react/24/outline'
 
 const STATUS_FLOW = ['pending', 'confirmed', 'processing', 'shipped', 'delivered']
 
@@ -37,6 +39,12 @@ export default function AdminOrderDetail() {
       })
       setOrder(res.data)
       toast.success('Order status updated!')
+      // Auto-generate invoice when shipped or delivered
+      if (newStatus === 'shipped' || newStatus === 'delivered') {
+        generateInvoicePDF(res.data).then(() =>
+          toast.info('📄 Invoice PDF downloaded!')
+        )
+      }
     } catch {
       toast.error('Failed to update status')
     } finally {
@@ -62,6 +70,14 @@ export default function AdminOrderDetail() {
           <span className={`px-3 py-1.5 rounded-full text-sm font-semibold capitalize ${getOrderStatusColor(order.status)}`}>
             {order.status}
           </span>
+          <button
+            onClick={() => generateInvoicePDF(order).then(() => toast.info('📄 Invoice PDF downloaded!'))}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold text-white transition-all hover:scale-105"
+            style={{ background: 'linear-gradient(135deg, #f09c27, #e07b00)' }}
+          >
+            <ArrowDownTrayIcon className="w-4 h-4" />
+            Download Invoice
+          </button>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">

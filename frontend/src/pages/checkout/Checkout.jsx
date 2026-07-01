@@ -50,9 +50,9 @@ export default function Checkout() {
     return null
   }
 
-  const shippingCost    = Number(subtotal) >= 2500 ? 0 : 100
+  const shippingCost    = 0
   const discountAmount  = Number(couponData?.discount_amount || 0)
-  const total           = Number(subtotal) + shippingCost - discountAmount
+  const total           = Number(subtotal) - discountAmount
 
   // ── Coupon ────────────────────────────────────────────────────────────────
   const applyCoupon = async () => {
@@ -421,9 +421,7 @@ export default function Checkout() {
                   </div>
                   <div className="flex justify-between text-gray-600">
                     <span>Shipping</span>
-                    <span className={`font-medium ${shippingCost === 0 ? 'text-green-600' : 'text-gray-800'}`}>
-                      {shippingCost === 0 ? '🎉 Free' : formatPrice(shippingCost)}
-                    </span>
+                    <span className="font-medium text-green-600">🎉 Free</span>
                   </div>
                   {discountAmount > 0 && (
                     <div className="flex justify-between text-green-600">
@@ -431,16 +429,9 @@ export default function Checkout() {
                       <span className="font-medium">−{formatPrice(discountAmount)}</span>
                     </div>
                   )}
-
-                  {shippingCost === 0 ? (
-                    <p className="text-xs text-green-600 bg-green-50 rounded-lg px-2 py-1">
-                      🎉 Free delivery applied — order PKR 2,500+
-                    </p>
-                  ) : (
-                    <p className="text-xs text-gray-400 bg-gray-50 rounded-lg px-2 py-1">
-                      📦 Delivery: PKR 100 &nbsp;·&nbsp; Add {formatPrice(2500 - Number(subtotal))} more for free delivery
-                    </p>
-                  )}
+                  <p className="text-xs text-green-600 bg-green-50 rounded-lg px-2 py-1">
+                    🎉 Free delivery on all orders — Cash on Delivery available
+                  </p>
 
                   <hr className="my-1" />
                   <div className="flex justify-between font-bold text-base">

@@ -77,8 +77,12 @@ export default function Navbar() {
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       {/* Top bar */}
-      <div className="bg-dark text-white text-xs py-1.5 text-center tracking-wide">
-        🚚 Free delivery on orders <span className="font-bold text-primary">PKR 2,500 or above</span> &nbsp;·&nbsp; Fast shipping across Pakistan
+      <div className="bg-dark text-white text-xs py-2 text-center tracking-wide">
+        🚚 <span className="font-bold text-primary">Free Delivery</span> on all orders
+        &nbsp;·&nbsp;
+        💵 <span className="font-bold text-primary">Free COD</span> Available
+        &nbsp;·&nbsp;
+        Fast shipping across Pakistan
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
